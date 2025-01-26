@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="Criando tabela kills_por_round" author="lrickelme">
+        <createTable tableName="kills_por_round">
+            <column name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="partida_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="round_numero" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="kills" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint
+                baseTableName="kills_por_round"
+                baseColumnNames="partida_id"
+                constraintName="fk_kills_por_round_partidas_cs2"
+                referencedTableName="partidas_cs2"
+                referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

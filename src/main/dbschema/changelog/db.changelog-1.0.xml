@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="Criando tabela usuarios" author="lrickelme">
+        <createTable tableName="usuarios">
+            <column name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="nome" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(100)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="data_registro" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="Criando tabela partidas_cs2" author="lrickelme">
+        <createTable tableName="partidas_cs2">
+            <column name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="usuario_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mapa" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pontuacao" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_partida" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint
+                baseTableName="partidas_cs2"
+                baseColumnNames="usuario_id"
+                constraintName="fk_partidas_cs2_usuarios"
+                referencedTableName="usuarios"
+                referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

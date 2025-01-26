@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="Alterando tipo do id para bigint" author="lrickelme">
+        <modifyDataType tableName="usuarios" columnName="id" newDataType="bigint"/>
+        <modifyDataType tableName="partidas_cs2" columnName="id" newDataType="bigint"/>
+    </changeSet>
+
+</databaseChangeLog>
