@@ -11,7 +11,7 @@ target/
 *.iws
 *.iml
 *.ipr
-/home/rickelme/Documentos/ativ-liquibase/.idea
+.idea
 
 ### Eclipse ###
 .apt_generated
@@ -37,5 +37,4 @@ build/
 
 ### Mac OS ###
 .DS_Store
-
-/home/rickelme/Documentos/ativ-liquibase/liquibase.properties
+liquibase.properties
